@@ -1,31 +1,37 @@
-import { useEffect } from 'react'
-import { StyleSheet, Text, View ,Dimensions,StatusBar} from 'react-native'
-import { useDispatch, useSelector } from 'react-redux'
-import { WetherApiOne } from './src/Redux/ApiMiddleware'
-import { AppDispatch, RootState} from './src/Redux/Store'
+import React, {useEffect} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  StatusBar,
+  Image,
+  Button,
+  useColorScheme,
+} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, RootState} from './src/Redux/Store';
+import StackNavigation from './src/Navigation/StackNavigation';
+import MyDrawer from './src/Navigation/DrawerNavigation';
+import {NavigationContainer} from '@react-navigation/native';
 const App = () => {
-  const Selectedvalue =  useSelector((val:RootState)=>val.ReducerOneApi)
-  console.log("Selectered value",Selectedvalue.whetherdata)
-  const dispatch = useDispatch<AppDispatch>()
-  useEffect(()=>{
-    dispatch(WetherApiOne())
-  },[])
+
   return (
-    <View>
-      <Text>App</Text>
-    </View>
-  )
-}
+    <NavigationContainer>
+      <StackNavigation />
+    </NavigationContainer>
+  );
+};
 
-export default App
+export default App;
 
-const styles = StyleSheet.create({})
-      // useLayoutEffect(()=>{
-      //   const subscription = Dimensions.addEventListener(
-      //     'change',
-      //     ({window, screen}) => {
-      //       console.log(window, screen);
-      //     },
-      //   );
-      //   return () => subscription?.remove();
-      // },[])
+const styles = StyleSheet.create({});
+// useLayoutEffect(()=>{
+//   const subscription = Dimensions.addEventListener(
+//     'change',
+//     ({window, screen}) => {
+//       console.log(window, screen);
+//     },
+//   );
+//   return () => subscription?.remove();
+// },[])

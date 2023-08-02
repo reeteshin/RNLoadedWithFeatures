@@ -1,8 +1,8 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import thunk from 'redux-thunk'
-import { ReducerOneApi } from './Reducer'
+import { WeatherCooradinateFromApi,WeatherInformationFromApi } from './Reducer'
 
-const RootReducer = combineReducers({ReducerOneApi})
+const RootReducer = combineReducers({WeatherCooradinateFromApi,WeatherInformationFromApi})
 
 export const store = createStore(RootReducer,applyMiddleware(thunk))
 
